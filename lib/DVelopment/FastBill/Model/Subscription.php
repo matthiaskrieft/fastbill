@@ -87,7 +87,7 @@ class Subscription
      * @JMS\SerializedName("ARTICLE_NUMBER")
      */
     private $articleNumber;
-    
+
     /**
      * @var string
      *
@@ -131,14 +131,18 @@ class Subscription
     /**
      * @var array
      *
-     * @JMS\Type("ArrayCollection(Feature)")
+     * @JMS\Type("array")
      * @JMS\SerializedName("FEATURES")
      */
     private $features;
 
-    public function __construct() {
-        $this->features = [];
-    }
+    /**
+     * @var Plan
+     *
+     * @JMS\Type("Plan")
+     * @JMS\SerializedName("PLAN")
+     */
+    private $plan;
 
     /**
      * @param int $subscriptionId
@@ -235,7 +239,7 @@ class Subscription
     {
         return $this->nextEvent;
     }
-    
+
     /**
      * @param string $cancelationDate
      *
@@ -330,7 +334,7 @@ class Subscription
     {
         return $this->quantity;
     }
-    
+
     /**
      * @param string $subscriptionExtUid
      *
@@ -349,7 +353,7 @@ class Subscription
     {
         return $this->subscriptionExtUid;
     }
-    
+
     /**
      * @param string $lastEvent
      *
@@ -424,5 +428,24 @@ class Subscription
     public function getFeatures()
     {
         return $this->features;
+    }
+
+    /**
+     * @param Plan $plan
+     *
+     * @return Subscription
+     */
+    public function setPlan($plan)
+    {
+        $this->plan = $plan;
+        return $this;
+    }
+
+    /**
+     * @return Plan
+     */
+    public function getPlan()
+    {
+        return $this->plan;
     }
 }
