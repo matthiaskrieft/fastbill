@@ -201,7 +201,7 @@ class Api
      */
     public function updateSubscription(Subscription $subscription)
     {
-        return $this->call(new CustomerRequest('subscription.update', array(), $subscription))->getResponse();
+        return $this->call(new SubscriptionRequest('subscription.update', array(), $subscription))->getResponse();
     }
 
     /**
