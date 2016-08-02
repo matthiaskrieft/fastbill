@@ -18,6 +18,7 @@ use DVelopment\FastBill\Model\Request\CustomerRequest;
 use DVelopment\FastBill\Model\Request\DeleteRequest;
 use DVelopment\FastBill\Model\Request\ProjectRequest;
 use DVelopment\FastBill\Model\Request\Request;
+use DVelopment\FastBill\Model\Request\SubscriptionRequest;
 use DVelopment\FastBill\Model\Request\SubscriptionSecureLinkRequest;
 use DVelopment\FastBill\Model\Request\TimeRequest;
 use DVelopment\FastBill\Model\Task;
@@ -460,5 +461,15 @@ class Api
     public function getSubscriptionSecureLinks($subscription)
     {
         return $this->call(new SubscriptionSecureLinkRequest('subscription.createsecurelink', array('subscription_id' => $subscription->getSubscriptionId())), 'DVelopment\FastBill\Model\SubscriptionSecureLinkFbApi')->getResponse();
+    }
+
+    /**
+     * @param Subscription $subscription
+     *
+     * @return array
+     */
+    public function updateSubscription(Subscription $subscription)
+    {
+        return $this->call(new SubscriptionRequest('subscription.update', array(), $subscription))->getResponse();
     }
 }
