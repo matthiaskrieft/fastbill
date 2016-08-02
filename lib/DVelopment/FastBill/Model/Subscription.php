@@ -129,6 +129,18 @@ class Subscription
     private $expirationDate;
 
     /**
+     * @var array
+     *
+     * @JMS\Type("ArrayCollection(Feature)")
+     * @JMS\SerializedName("FEATURES")
+     */
+    private $features;
+
+    public function __construct() {
+        $this->features = [];
+    }
+
+    /**
      * @param int $subscriptionId
      *
      * @return Subscription
@@ -393,5 +405,24 @@ class Subscription
     public function getExpirationDate()
     {
         return $this->expirationDate;
+    }
+
+    /**
+     * @param Feature[] $features
+     *
+     * @return Subscription
+     */
+    public function setFeatures($features)
+    {
+        $this->features= $features;
+        return $this;
+    }
+
+    /**
+     * @return Feature[]
+     */
+    public function getFeatures()
+    {
+        return $this->features;
     }
 }
