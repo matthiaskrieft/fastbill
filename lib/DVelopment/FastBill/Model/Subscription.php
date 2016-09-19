@@ -139,7 +139,7 @@ class Subscription
     /**
      * @var Plan
      *
-     * @JMS\Type("Plan")
+     * @JMS\Type("DVelopment\FastBill\Model\Plan")
      * @JMS\SerializedName("PLAN")
      */
     private $plan;
