@@ -72,7 +72,7 @@ class Api
         $this->apiKey = $apiKey;
 
         $this->serializer = SerializerBuilder::create()
-            ->setCacheDir(__DIR__ . '/../../../cache')
+            ->setCacheDir(__DIR__ . '/../../../../../../app/cache/fastbill')
             ->setDebug(true)
             ->build();
 
